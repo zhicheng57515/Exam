@@ -1,0 +1,89 @@
+@media (min-width: 768px) {
+    #nav2{
+        display: none;
+    }
+
+    #bs-example-navbar-collapse-1 ul li{
+        margin-bottom: 0;
+    }
+
+    #bs-example-navbar-collapse-1 ul li a{
+        color: black;
+        height: 60px;
+        font-size: 18px;
+        line-height: 30px;
+        text-align: center;
+
+    }
+    #nav1{
+        -webkit-box-shadow: blue 0px 0px 10px;
+        -moz-box-shadow: blue 0px 0px 10px;
+    }
+    #bs-example-navbar-collapse-1 ul li ul li a{
+        font-size: 14px;
+        height: 32px;
+    }
+    #bs-example-navbar-collapse-1 ul li #down li a{
+        padding: 0;
+        margin: 0;
+        width: 100px;
+    }
+    .dropdown-menu{
+        min-width: 100px;
+        position: absolute;
+        right:10px;
+        left: 10px;
+
+    }
+    #title{
+        display: none;
+    }
+
+}
+@media (max-width: 767px) {
+    /*#goBack{*/
+        /*display:inline-block;*/
+    /*}*/
+    #nav2{
+        display: inline-block;
+        /*padding-bottom: 10px;*/
+        /*padding-left: 2%;*/
+    }
+    #nav2 li{
+        width: 18%;
+        text-align: center;
+        font-size: 12px;
+    }
+    #nav1,#footer{
+        display: none;
+    }
+    #nav1{
+        height: 30px;
+    }
+    #title{
+        display: block;
+        font-weight: bolder;
+        font-size: 14px;
+        line-height: 50px;
+        text-align: center;
+        width:100%;
+        position: fixed;
+        z-index: 9999999;
+        top:0;
+        background: linear-gradient(to top right , #36bad3, #1ea2c9);
+    }
+    #nav2 li a{
+        color: black;
+        font-weight: bolder;
+    }
+    #allPage{
+        /*background:url("../images/phone3.png");*/
+        margin-top:50px
+    }
+}
+.container-fluid{
+    background: -webkit-linear-gradient(#36bad3, #2aa9cc,#1ea2c9); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#36bad3, #2aa9cc,#1ea2c9); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#36bad3, #2aa9cc,#1ea2c9); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#36bad3, #2aa9cc,#1ea2c9); /* 标准的语法 */
+}

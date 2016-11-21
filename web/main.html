@@ -1,0 +1,158 @@
+<!--
+<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+<!--
+<link href="//cdn.bootcss.com/angular-carousel/1.0.1/angular-carousel.css" rel="stylesheet">
+<script src="//cdn.bootcss.com/angular-carousel/1.0.1/angular-carousel.js"></script>
+-->
+
+<style>
+  .gaodu{
+        height: 320px;
+    }
+/*    .gaodu2{
+        height: 280px;
+        width: 100%;
+    }*/
+    .row{
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+  @media (min-width: 768px) {
+      #myCarousel{
+             margin-top: -20px
+         }
+  }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myCarousel').carousel({
+            interval: 2000
+        });
+
+        $('#myCarousel').carousel('cycle');
+    });
+</script>
+
+<div id="myCarousel" class="carousel slide">
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+    </ol>
+    <!-- 轮播（Carousel）项目 -->
+    <center>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="images/h5.png" alt="">
+            </div>
+            <div class="item">
+                <img src="images/ui.png" alt="">
+            </div>
+            <div class="item">
+                <img src="images/ios.png" alt="">
+            </div>
+            <div class="item">
+                <img src="images/java.png" alt="">
+            </div>
+            <div class="item">
+                <img src="images/android.png" alt="">
+            </div>
+        </div>
+    </center>
+    <!-- 轮播（Carousel）导航 -->
+    <a class="carousel-control left" href="#myCarousel"
+       data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel"
+       data-slide="next">&rsaquo;</a>
+</div>
+
+
+<!--内容开始-->
+
+<div class="container">
+    <div class="row">
+
+        <!--课程简介-->
+
+        <div class="row">
+            <div class="col-md-8">
+                <h3>课程简介</h3>
+                <br>
+                <div class="col-md-6 col-xs-12 gaodu"  >
+                    <div><img src="images/h5.png" width="84px" height="92px" alt="假装有图片" /></div>
+                    <h4>HTML5<em>简介</em></h4>
+                    <p>万维网的核心语言、标准通用标记语言下的一个应用超文本标记语言（HTML）的第五次重大修改,（这是一项推荐标准、外语原文：W3C Recommendation、见本处参考资料原文内容：[1]  ）。
+                        2014年10月29日，万维网联盟宣布，经过接近8年的艰苦努力,HTML5标准规范终于制定完成。</p>
+                    <a href="http://www.runoob.com/html/html5-intro.html" target="_blank">学习HTML5</a>
+                </div>
+                <div class="col-md-6 col-xs-12 gaodu"  >
+                    <div><img src="images/ui.png" width="84px" height="92px" alt="假装有图片"/></div>
+                    <h4>UI设计<em>简介</em></h4>
+                    <p>UI即User Interface(用户界面)的简称。
+                        UI设计是指对软件的人机交互、操作逻辑、界面美观的整体设计。
+                        好的UI设计不仅是让软件变得有个性有品位，
+                        还要让软件的操作变得舒适简单、自由，充分体现软件的定位和特点。</p>
+                    <a href="http://www.shui-mai.com/" target="_blank">学习UI</a>
+                </div>
+                <div class="col-md-6 col-xs-12 gaodu"  >
+                    <div><img src="images/java.png" width="84px" height="92px" alt="假装有图片" /></div>
+                    <h4>Java<em>简介</em></h4>
+
+                    <p>Java是一门面向对象编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、
+                        指针等概念，因此Java语言具有功能强大和简单易用两个特征。
+                        Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，
+                        允许程序员以优雅的思维方式进行复杂的编程。</p>
+                    <a href="http://www.runoob.com/java/java-tutorial.html" target="_blank">学习Java</a>
+                </div>
+                <div class="col-md-6 col-xs-12 gaodu"  >
+                    <div><img src="images/ios.png" width="84px" height="92px" alt="假装有图片" /></div>
+                    <h4>ios<em>简介</em></h4>
+                    <p>iOS是由苹果公司开发的移动操作系统。苹果公司最早于2007年1月9日的Macworld大会上公布这个系统，iOS与苹果的Mac OS X操作系统一样，
+                        属于类Unix的商业操作系统。原本这个系统名为iPhone OS，因为iPad，iPhone，iPod touch都使用iPhone OS。</p>
+                    <a href="http://www.runoob.com/swift/swift-tutorial.html" target="_blank">学习ios</a>
+                </div>
+            </div>
+            <!--在线咨询-->
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="col-xs-12 gaodu2">
+                        <h3>在线留言</h3>
+                        <br>
+                        <div><a href="#"><img class="img-border" src="images/page1-img5.jpg" alt="" /></a></div>
+                        <span>Java专家</span>
+                        <h4>杨羊羊<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=516877717&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:516877717:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></h4>
+                        <p>在1984年到2010年间，一直供职于Sun微系统公司。在2010年甲骨文收购Sun后不久，并在2011年初加入谷歌。</p>
+                        <br>
+                    </div>
+                    <div class="col-xs-12 gaodu2">
+                        <div><a href="#"><img class="img-border" src="images/page1-img6.jpg" alt="" /></a></div>
+                        <div>
+                            <span>安卓布道师</span>
+                            <h4>郭鼎<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=516877717&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:516877717:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></h4>
+                            <p>1963年，出生于中国河南。他的房间里总是堆满了最新的电子产品，他每天都待在屋里拆拆卸卸，乐此不疲。极客（Geek）基因从此种下。</p>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 gaodu2">
+                        <div><a href="#"><img class="img-border" src="images/page1-img7.jpg" alt="" /></a></div>
+                        <span>全栈工程师</span>
+                        <h4>冯程程<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=516877717&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:516877717:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></h4>
+                        <p>曾在NCR公司和Agere公司担任电气工程师。不过，技术给他带来的名气远不如外交技巧，他主持了802.11无线局域网标准的制定工作。目前，他在荷兰德尔福特理工大学担任高级研究员。
+                        </p><br>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- JiaThis Button BEGIN -->
+    <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jiathis_r.js?type=left&amp;move=0&amp;btn=l3.gif" charset="utf-8"></script>
+    <!-- JiaThis Button END -->

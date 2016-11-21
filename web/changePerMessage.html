@@ -1,0 +1,183 @@
+    <style>
+/*
+
+        .wordCount{
+            position:relative;
+            width: 100%;
+        }
+        .wordCount .wordwrap{
+            position:absolute;
+            right: 6px;
+            bottom:5px;
+        }
+        .wordCount .word{
+            color: red;
+            padding: 0 4px;
+        }
+*/
+
+
+
+        *{
+            margin: 0px;padding: 0px;
+        }
+        .row{
+            margin: 0px;
+            padding: 0px;
+        }
+        @media (max-width: 767px) {
+            .main{
+            height:500px;
+            width: 100%;
+            }
+            .test{
+                width:10%;
+                color:red;
+            }
+        }
+        #nav2 li{
+            margin-bottom: 0px;
+        }
+        ul li{
+            margin-bottom: 10px;
+            text-align: right;
+            list-style: none;
+        }
+        .col-xs-8{
+            float:none;
+        }
+        ul li input,textarea{
+            width:55%;
+            /*text-align: center;*/
+            line-height: 30px;
+        }
+        ul li label{
+            font-size:16px;
+        }
+        .test{
+            width: 20%
+        }
+      /*  body{
+            padding: -15px;
+        }*/
+    </style>
+
+<!--<script>
+    $(function(){
+
+        //先选出 textarea 和 统计字数 dom 节点
+        var wordCount = $("#wordCount"),
+                textArea = wordCount.find("textarea"),
+                word = wordCount.find(".word");
+        //调用
+        statInputNum(textArea,word);
+
+    });
+    /*
+     * 剩余字数统计
+     * 注意 最大字数只需要在放数字的节点哪里直接写好即可 如：<var class="word">200<ar>
+     */
+    function statInputNum(textArea,numItem) {
+        var max = numItem.text(),
+                curLength;
+        textArea[0].setAttribute("maxlength", max);
+        curLength = textArea.val().length;
+        numItem.text(max - curLength);
+        textArea.on('input propertychange', function () {
+            numItem.text(max - $(this).val().length);
+        });
+    }
+</script>-->
+
+
+
+<div style="margin-bottom: 200px" class="main row">
+<p style="text-align: center"> <img id="changePhoto" class="img-circle" src="images/userAvatar.png"  width="100px" height="100px" alt="暂无图片"></p>
+<ul style=" padding: 0px">
+   <!-- <li class="col-xs-8 col-md-6 col-xs-offset-1 col-md-offset-2" >
+        <label >用户编号:</label>
+        <input readonly="readonly" id="userNo" type="text" value="">
+    </li>-->
+
+    <li class="col-xs-8 col-md-6 col-xs-offset-1 col-md-offset-2">
+        <label for="nicheng">昵称:</label>
+        <input placeholder="请输入您的昵称" maxlength="15" id="nicheng" type="text" value="">
+        <br>
+        <label style="display: none" id="nicheng1">昵称不合法</label>
+    </li>
+
+    <li class="col-xs-8 col-md-6 col-xs-offset-1 col-md-offset-2"  >
+        <label for="IdCardNo">身份证号:</label>
+        <input placeholder="请输入身份证号（非必填）" maxlength="19" id="IdCardNo" type="text" value="">
+        <br>
+        <label  style="display: none"id="IdCardNo1">身份证号不正确</label>
+    </li>
+<li class="col-xs-8 col-md-6 col-xs-offset-1 col-md-offset-2">
+    <div style="text-align: left;margin-left: 38%">
+    <label style="width: 100%">性别：<input class="test"  name="sex"  type="radio" value="男"/>男
+    <input name="sex" class="test"  type="radio" value="女"/>女
+</label></div></li>
+    <li class="col-xs-8 col-md-6 col-xs-offset-1 col-md-offset-2"  >
+        <label for="college">毕业院校:</label>
+        <input placeholder="请输入您的毕业院校" maxlength="30" id="college" type="text" value="">
+        <br>
+        <label style="display: none" id="college1">院校名称长度不合法</label>
+    </li>
+
+  <!--  <li class="col-xs-8 col-md-6 col-xs-offset-1 col-md-offset-2"  >
+        <label for="userDeptNo">部门名称:</label>
+        <input id="userDeptNo" type="text" value="">
+    </li>
+-->
+    <li class="col-xs-8 col-md-6 col-xs-offset-1 col-md-offset-2"  >
+        <label for="telNo">手机号:</label>
+        <input placeholder="请输入您的手机号" maxlength="12" id="telNo" type="text" value=""><br>
+        <label id="telNo1" style="display: none">手机号不正确</label>
+    </li>
+
+    <li class="col-xs-8 col-md-6 col-xs-offset-1 col-md-offset-2"  >
+        <label for="sign">个性签名:</label>
+        <input placeholder="个性签名" maxlength="95" id="sign" type="text" value=""><br>
+        <label  id="sign1" style="display: none">签名长度不合法</label>
+    </li>
+
+    <li class="col-xs-8 col-md-6 col-xs-offset-1 col-md-offset-2"  >
+        <label for="twitter">微博:</label>
+        <input placeholder="请输入您的微博账号（非必填）" maxlength="15" id="twitter" type="text" value=""><br>
+        <label id="twitter1" style="display: none">微博账号不正确</label>
+    </li>
+
+    <li class="col-xs-8 col-md-6 col-xs-offset-1 col-md-offset-2"  >
+        <label for="wechat">微信:</label>
+        <input placeholder="请输入您的微信账号（非必填）" maxlength="15" id="wechat" type="text" value=""><br>
+        <label id="wechat1" style="display: none">微信号不正确</label>
+    </li>
+    <li class="col-xs-8 col-md-6 col-xs-offset-1 col-md-offset-2"  >
+        <label for="QQ">QQ:</label>
+        <input placeholder="请输入您的QQ号（非必填）" maxlength="12" id="QQ" type="text" value=""><br>
+        <label id="QQ1" style="display: none">QQ号不正确</label>
+    </li>
+    <li class="col-xs-8 col-md-6 col-xs-offset-1 col-md-offset-2"  >
+        <label  for="introduce" style="vertical-align: top">自我介绍:</label>
+        <textarea placeholder="介绍一下自己吧" maxlength="195" id="introduce" value="">
+
+        </textarea><br>
+        <label id="introduce1" style="display: none">长度不合法</label>
+        <!--<input type="text" value="">-->
+    </li>
+</ul>
+
+    <p style="text-align: center">
+        <a href="javascript:location.reload();">
+            <button type="button" class="btn btn-primary">重置</button>
+        </a>
+        <button id="save" name ="submit" type="submit" class="btn btn-primary">提交</button>
+    </p>
+    </div>
+
+
+    <script src="contact.js"></script>
+    <script src="perMessage.js"></script>
+    <script src="changeAvatar.js"></script>
+    <!--<script src="index.js"></script>-->
+    <script src="http://m.xmgc360.com/pie/web/js/common.js"></script>

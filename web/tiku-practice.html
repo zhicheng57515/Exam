@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tiku">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!DOCTYPE html>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--外部文件引入-->
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
+    <script src="//cdn.bootcss.com/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
+<style>
+    @media (min-width: 768px) {
+     #total{
+         margin-left: 15%;margin-right: 15%;
+         margin-bottom: 40px;
+     }
+        #everyObj{
+            width: 70%;
+        }
+    }
+    @media (max-width: 767px) {
+        #total{
+            margin-left: 4%;margin-right: 1%;
+            margin-bottom: 20px;
+        }
+        #everyObj{
+            width:95%
+        }
+    }
+</style>
+</head>
+<body>
+<div ng-controller="tiku-practice">
+    <div style="margin-left: 1%;height: 50px;line-height: 50px">
+        <a href="index.html" style="margin-top: 20px"><button class="btn btn-default">返回</button></a>
+    </div>
+    <div id="total">
+        <h3 ><span ng-bind="checkClassName">...</span>练习题</h3>
+        <p>(10道，每次刷新重新产生,如题库题目不足10道，将全部显示) &nbsp;<a href="#" id="reloadObj">刷新</a></p>
+        <hr>
+        <div id="everyObj" ng-repeat="a in rows">
+            <p><span ng-bind="a.timuNo"></span>．<span ng-bind="a.testContent"></span></p>
+            <div style="text-indent: 4em">
+                <p><input type="radio">A．<span ng-bind="a.optionA"></span></p>
+                <p><input type="radio">B．<span ng-bind="a.optionB"></span></p>
+                <p><input type="radio">C．<span ng-bind="a.optionC"></span></p>
+                <p><input type="radio">D．<span ng-bind="a.optionD"></span></p>
+
+            </div>
+            <div class="check_answer" style="float: right;display: none;margin-right: 5%;margin-bottom: 5px">答案：<span ng-bind="a.answer"></span></div>
+
+            <hr style="text-indent:-4em;width: 93%;height:1px;border:none;border-top:1px dashed #0066CC;" />
+        </div>
+
+        <a href="#" id="lookAnswer">查看答案</a>
+
+    </div>
+
+</div>
+
+
+
+<script>
+    var uid;
+    $.post('../api/cookie',function(retCoo) {
+        if (retCoo.code == 8788) {
+            window.location.href = "http://m.xmgc360.com/start/web/account/?page=acc_login"
+        }
+        else{
+            uid=retCoo.data.uid;
+        }
+    });
+    var tiku = angular.module('tiku', ['ui.bootstrap']);
+    tiku.config(function($controllerProvider) {
+        tiku.controller = $controllerProvider.register;
+    });
+    tiku.run(function($rootScope) {});
+
+    tiku.controller('tiku-practice', function($scope) {
+
+            var str=window.location.search.substring(6);
+            var strArray=str.split('-');
+            var checkClass=strArray[0];
+            $scope.checkClassName=strArray[1];
+            var dat={
+                checkClass:checkClass
+            };
+            $.post('../api/ManageCount',dat,function (res) {
+                var objNum;
+                var objNumCheck=res[0]['count(*)'];
+                if(objNumCheck<=10){
+                    objNum=objNumCheck;
+                }
+                else{
+                    objNum=10
+                }
+                var lastDat={
+                    checkClass1:objNum,
+                    checkClass:checkClass
+                }
+                $.post('../api/ManageRandom',lastDat,function (res) {
+
+                    for(var i=0;i<res.length;i++){
+                        res[i].timuNo=i+1;
+                    }
+                    $scope.$apply(function () {
+                        $scope.rows=res;
+//                        console.log($scope.rows)
+
+                    })
+
+                });
+            })
+
+    });
+
+    $('#lookAnswer').click(function () {
+        $('.check_answer').show();
+    });
+    $('#reloadObj').click(function () {
+        window.location.reload()
+    });
+</script>
+</body>
+</html>

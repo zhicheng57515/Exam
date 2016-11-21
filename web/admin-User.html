@@ -1,0 +1,89 @@
+<!--<!DOCTYPE html>
+<html lang="en"  ng-app="admin">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    &lt;!&ndash;外部文件引入&ndash;&gt;
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
+    <script src="//cdn.bootcss.com/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
+</head>
+<body>-->
+<div ng-controller="adminUser" >
+   <!-- <select id="aaa">
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>-->
+
+    <div style="margin-left: 60%;margin-top: 20px">
+        <input id="search_name" type="text" placeholder="请输入用户名搜索">
+        <button class="btn btn-default" id="search_user">
+            <span class="glyphicon glyphicon-search"></span>
+            搜索
+        </button>
+    </div>
+    <div style="margin-left: 5%">
+        <button id="checkTea"  class="btn btn-info">查看所有教师账号</button>
+        <button id="checkStu" class="btn btn-info">查看所有普通账号</button>
+    </div>
+    <hr>
+
+    <div style="width: 80%;margin-left: 5%">
+       <center> <p id="text_user" style="font-size: 20px;font-weight: bolder"></p></center>
+        <pagination
+                class="table_user"
+                ng-model="currentPage"
+                total-items="length"
+                max-size="maxSize"
+                boundary-link-numbers="true"
+                boundary-links="true"
+                style=""
+                previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo">
+        </pagination>
+        <table class="table table-bordered table_user" width="80%" style="display: none">
+            <thead>
+            <tr>
+                <td>ID编号</td>
+                <td>用户名</td>
+                <td>性别</td>
+                <td>电话号码</td>
+                <td>身份</td>
+                <td>修改身份</td>
+                <td>保存修改</td>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr  ng-repeat="todo in filteredTodos">
+                <td>{{todo.userNo}}</td>
+                <td>{{todo.userName}}</td>
+                <td>{{todo.sex}}</td>
+                <td>{{todo.telNo}}</td>
+                <td>{{todo.userDeptNo}}</td>
+                <td>
+                    <label id="{{todo.id}}" >修改为
+                   <select id="change_user" class="change_user" onchange="change_user()" >
+                       <option>--请选择--</option>
+                       <option value="2" >教师</option>
+                       <option value="3" >普通用户</option>
+                   </select></label>
+                </td>
+                <td><button class="btn btn-info" onclick="save_user()" id="btn_change" disabled >保存</button></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script src="admin-User.js"></script>
+<script src="adminCheck.js"></script>
+<!--
+</body>
+</html>-->

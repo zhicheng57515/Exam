@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="js/jquery-1.6.3.min.js"></script>
+    <script src="js/jQuery.fontFlex.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+
+    <style>
+        #total{
+            border: 1px black solid;
+            width: 100%;
+            background: #c4e3f3;
+        }
+    </style>
+    <script>
+        function closeWin() {
+            alert('ssssssssss');
+        }
+    </script>
+</head>
+<body onunload="closeWin()">
+<div id="total">
+    <aside id="time" style="width: 20%;height: 100px;background: red;float: left;top:20%;position: fixed">
+        <div style="background: #31b0d5;height: 30px">
+            <span style="color: white;font-weight: bolder"><span class="glyphicon glyphicon-time"></span>剩余时间：</span>
+        </div>
+        <div style="background: black;height: 70px">
+            <center style="color: white;font-weight: bolder;font-size: large;line-height: 70px">
+                <p id="timeCounter">00 : 00 : 00</p></center>
+        </div>
+    </aside>
+    <div id="container" style="margin-left: 25%;width: 70%;background: white;height: 80%;margin-top:10%;">
+        <header style="text-align: center">
+        <br>
+       <h1 style="font-weight: bolder;text-shadow: 0px 1px 5px grey" id="title"></h1>
+            <hr style=" height:2px;border:none;border-top:2px dotted #185598;" />
+        </header>
+        <article style="margin-left: 7%">
+            <h3>一、选择题</h3>
+            <section  style="text-indent: 2em">
+
+
+            </section>
+        </article>
+        <footer>
+            <center>
+            <button id="submitPaper" class="btn btn-success" onclick="confirmPaper('1')">提交</button>
+            </center><br>
+        </footer>
+    </div>
+</div>
+<script src="startExam.js"></script>
+</body>
+</html>

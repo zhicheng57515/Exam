@@ -1,0 +1,84 @@
+
+
+<script src="admin-addExam.js"></script>
+<script src="adminCheck.js"></script>
+<div  ng-controller="zdFirst" style="margin-bottom: 20px">
+<!--<select>
+    <option ng-repeat="myName in name" value="{{myName.classNo}}">{{myName.className}}</option>
+</select>-->
+    <header style="margin-top: 2%">
+        <span>请选择科目:</span>
+    <select  id="myId"></select>
+
+        &nbsp; &nbsp;
+        <span>请选择时长:</span>
+        <select  id="testTime">
+            <option value="45">45分钟</option>
+            <option value="60">60分钟</option>
+            <option value="90">90分钟</option>
+            <option value="120">120分钟</option>
+            <option value="150">150分钟</option>
+        </select>
+
+        &nbsp; &nbsp;
+        <span>请选择班级:</span>
+        <select  id="family">
+        </select>
+
+    </header>
+    <br>
+    <hr>
+           <!-- <div id="topic" >
+                <div style="margin-left: 20px" id="card">
+                    <span style="vertical-align: top">
+                        <span id="topicNum"  style="vertical-align: top">1</span>.题目 </span>
+                    <textarea id="topicContent" rows="3" cols="50" ></textarea>
+                    <p>选项A  <input style="width: 350px" id="topicA" type="text" ></p>
+                    <p>选项B  <input style="width: 350px" id="topicB" type="text" ></p>
+                    <p>选项C  <input style="width: 350px" id="topicC" type="text" ></p>
+                    <p>选项D  <input style="width: 350px" id="topicD" type="text" ></p>
+                    <p>答案：<input style="width: 350px" id="answer" type="text" ></p>
+                    <p style="color: red">分值：<input style="width: 350px" type="text"></p>
+                    <hr>
+                </div>
+            </div>-->
+<div id="topic">
+    <div style="display: none">
+        <div  >
+            <div style="margin-left: 20px;" id="card">
+
+                <p><span style="vertical-align: top">
+                <span id="topicNum"  style="vertical-align: top"></span>
+                    <strong style="vertical-align: top">0</strong>.题目
+                </span>
+                    <textarea cols="60" rows="3" id="topicContent"  ></textarea></p>
+                <p>选项A  :<textarea id="topicA" cols="50"></textarea></p>
+                <p>选项B  :<textarea id="topicB" cols="50"></textarea></p>
+                <p>选项C  :<textarea id="topicC" cols="50"></textarea></p>
+                <p>选项D  :<textarea id="topicD" cols="50"></textarea></p>
+                <p>答案   ：<select>
+                    <option value="A">A</option> <option value="B">B</option>
+                    <option value="C">C</option><option value="D">D</option>
+                </select></p>
+                <!--<p style="color: red">分值(*请填写数字)   ：<textarea cols="50" rows="1"></textarea></p>-->
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="total" style="line-height: 26px">
+
+        <label style="color: red">试卷名称:<input id="testPlanName" type="text"></label>
+        <div id="paperContent">
+            <div id="paper"></div>
+        </div>
+
+
+        <hr style="margin-bottom: 20px">
+
+
+    </div>
+    <button style="margin-left: 80px" id="addTestNum" type="button" class="btn btn-info">试题+</button>
+    <button id="createExam" disabled="true" class="btn btn-info">创建考试</button>
+    <span style="color: red">*红的的选项是必须填写的选项</span>
+</div>

@@ -1,0 +1,235 @@
+<!--<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    &lt;!&ndash;外部文件引入&ndash;&gt;
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <link href="bootstrap.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
+    <script src="//cdn.bootcss.com/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>-->
+    <script src="js/papaparse.js"></script>
+    <script type="text/javascript">
+//        var app = angular.module('myapp', []);
+        admin.controller('uploder', function($scope) {
+            $("#createExam1").click(function ()    {
+                $('#file').parse({
+                    config: {
+                        delimiter: "",  // auto-detect
+                        newline: "",    // auto-detect
+                        header: true,
+                        dynamicTyping: false,
+                        preview: 0,
+                        encoding: "GB2312",
+                        worker: false,
+                        comments: false,
+                        step: undefined,
+                        complete: completeFn,//上传成功时执行哪个函数
+                        error: undefined,
+                        download: false,
+                        skipEmptyLines: true,
+                        chunk: undefined,
+                        fastMode: undefined,
+                        beforeFirstChunk: undefined
+                    }
+                });
+            });
+
+            $.post('../api/family',function (res) {
+                for (var i=0;i<res.length;i++){
+                    $('#family2').append('<option value="'+res[i]["familyNo"]+'">'+res[i]["familyName"]+'</option>')
+
+                }
+            });
+            $('#createExam1').click(function () {
+                $('#createExam').removeAttr("disabled");
+
+                $('#createExam').click(function () {
+                    // alert('>>>>')
+                    var confirmRes=confirm('确定创建调查吗');
+                    if(confirmRes==true) {
+                        var textareaData = $('#topic textarea');
+//                         console.log(textareaData);
+                        var a=4;
+                        var num = (textareaData.length)/4;
+                        // console.log(num);
+                        var judgment=0;
+                        for(var j=1;j<=num;j++){
+                            var newAA=[];  //每到题目数组
+                            for(var i = a*(j-1);i <a*j ;i++){
+                                // console.log(i);
+                                var dat = textareaData[i].value;
+                                // console.log("ddddd",dat);
+                                if(dat==''){
+                                    judgment+=1;
+                                    // console.log(textareaData[i],'请填写完整')
+                                }
+                                else{
+                                    newAA.push(dat);
+                                }
+                            }
+
+                            array_subject[j-1]=newAA
+                        }
+
+                        if(judgment!=0) {alert('请把必填选项填写完整和正确');}
+
+                        else{
+                            /*  var inputData = $('#total input')[0].value;*/
+                            var surName=$('#queName').val();
+                            var familyNo=$('#family2 option:selected').val();
+                            if(surName==''){
+                                alert('请输入调查名称')
+                            }
+                            else{
+                                paper_total.surName=surName;
+                                paper_total.bank=array_subject;
+                                paper_total.familyNo=familyNo;
+
+                                paper_total.uid=uid;
+//                                 console.log('帅帅的',paper_total)
+                                $.post('../api/createSurvey',paper_total,function(res){
+                                    // alert(res);
+                                    window.location.href='adminManage.html'
+                                })
+                            }
+                        }
+
+                    }
+
+
+                })
+            })
+
+            var paper_total = {};             //试卷内部
+            var array_subject = [];        //所有题目数组
+
+
+            function completeFn(results) {
+                //这里我提取了fields,可以根据实际情况提取其他内容
+                console.log("ssssssssssss");
+                console.log(results.data);
+                $scope.$apply(function () {
+                    $scope.data=results.data;
+                    console.log( $scope.data)
+                });
+                var data=results.data;
+//            console.log(results);
+                var result = document.getElementById("result");
+//                result.innerHTML = results.data[0]["题目"];
+
+            };
+            $scope.data={};
+            var result=document.getElementById("result");
+            var file=document.getElementById("file");
+            //判断浏览器是否支持FileReader接口
+            if(typeof FileReader == 'undefined'){
+                result.InnerHTML="<p>你的浏览器不支持FileReader接口！</p>";
+                //使选择控件不可操作
+                file.setAttribute("disabled","disabled");
+            }
+        });
+    </script>
+    <style>
+        textarea{
+            margin-bottom: -10px;
+            margin-top: 10px
+        }
+        .upload_input .input{
+            color: #1b6d85;
+        }
+        .a-upload {
+            top:13px;
+            padding: 1px 10px;
+            height: 34px;
+            line-height: 35px;
+            position: relative;
+            cursor: pointer;
+            color: white;
+            background: #5BC0DE;
+            border-radius: 4px;
+            overflow: hidden;
+            display: inline-block;
+            *display: inline;
+            *zoom: 1
+        }
+
+        .a-upload  input {
+            position: absolute;
+            font-size: 100px;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            cursor: pointer
+        }
+
+        .a-upload:hover {
+            color: white;
+            background: #31B0D5;
+            text-decoration: none
+        }
+        #card p{
+            margina: 0 0 50px;
+        }
+    </style>
+</head>
+<body>
+<div style="margin-left: 5%;margin-right: 20%">
+    <div style="line-height: 40px;">
+        <div>
+            <span>请选择班级:</span>
+            <select  id="family2">班级编号
+            </select>
+        </div>
+        <div class="upload_input">
+            <label style="color: red">问卷名称:<input type="text" id="queName" style="clear: both" class="form-control" placeholder="请输入文件名称"></label><br>
+            <label>请选择一个文件：</label>
+            <!--<input type="file" id="file" />-->
+            <!--<input type="file" class="file_search" id="file"  >-->
+            <a href="javascript:;" class="a-upload">
+                <input type="file" name="" id="file">选择文件
+            </a>
+            <!--<input type="button" value="读取文本文件" onclick="readAsText()" />-->
+            <button id="createExam1" class="btn btn-info" >预览文件</button>
+            <p>（*选择文件后点击预览文件将文件内容显示至页面上）</p>
+            <hr>
+            <button id="createExam" class="btn btn-info" disabled>创建问卷</button>
+            <span style="color: red">*红的的选项是必须填写的选项</span>
+            <hr style="margin-bottom: 20px">
+
+        </div>
+        <div id="result" name="result"></div>
+
+
+    </div>
+    <div id="topic" ng-controller="uploder">
+        <div style="" ng-repeat="(k,t) in data">
+                <div style="margin-left: 20px;" id="card">
+                    <p><!--<span style="vertical-align: top"></span>-->
+                        <!--<span id="topicNum"  style="vertical-align: top" ><span ></span></span></span>-->
+                        <span  style="vertical-align: top">{{t['编号']}}、</span>
+                        <textarea style="margin-top: 0" cols="60" rows="3" id="topicContent">{{t['题目']}}</textarea></p>
+                    <p>选项A  :<textarea id="topicA" cols="50" rows="1"  >{{t['选项1']}}</textarea></p>
+                    <p>选项B  :<textarea id="topicB" cols="50" rows="1"  >{{t['选项2']}}</textarea></p>
+                    <p>选项C  :<textarea id="topicC" cols="50" rows="1" >{{t['选项3']}}</textarea></p>
+                    <hr>
+                </div>
+
+        </div>
+    </div>
+    <div id="total" style="line-height: 26px">
+        <div id="paperContent">
+            <div id="paper"></div>
+        </div>
+
+    </div>
+</div>
+<script src="adminCheck.js"></script>
+<!--<script src="admin-addRandom.js"></script>-->
+<!--<script src="adminCheck.js"></script>-->
+
+</body>
+</html>

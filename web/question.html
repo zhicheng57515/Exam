@@ -1,0 +1,56 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+ &lt;!&ndash;   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">&ndash;&gt;
+   &lt;!&ndash; <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">&ndash;&gt;
+</head>-->
+
+<body onclick="show_element(event)" style="background: url('images/phone3.png');">
+<div ng-controller="quTestController">
+    <section id="content" style="height: 400px">
+            <pagination
+                    ng-model="currentPage"
+                    total-items="length"
+                    max-size="maxSize"
+                    boundary-links="true"
+                    boundary-link-numbers="true"
+                    previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo"
+                    style="margin-left: 10%">
+            </pagination>
+
+         <div id="quesPage" class="col-sm-10 col-sm-offset-1 col-xs-12" >
+             <center><h3  style="{{noQus}}">暂无问卷</h3></center>
+             <div  id="del" ng-repeat="todo in filteredTodos" >
+
+                 <div style="background: #c4e3f3;height: 30px">
+                    <span id="surName" style="font-size: 14px;line-height: 30px" >
+                         <a  href="#" onclick="checkPaper()" id="{{todo.surNo}}" ng-bind="todo.surName">..</a></span>
+                     <span id="unRead" style="{{todo.unReadstyle}}" ng-bind="todo.mark"> ...</span>
+                     <button class="btn btn-sm btn-info" style="float: right" id="{{todo.surNo}}"   onclick="delMes(event)" ng-bind="todo.btnDisabled"></button>
+                 </div>
+                 <div style="background:whitesmoke ;height: 30px">
+                     <div style="line-height: 30px">
+                         <span>发布人：<span ng-bind="todo.userName"></span></span>
+                     </div>
+                 </div>
+                 <br>
+             </div>
+
+       </div>
+
+
+    </section>
+</div>
+
+
+<script src="question.js"></script>
+<script>
+/*    var height=window.screen.height-120;
+    console.log(height);
+    $('#content').css('min-height',height)*/
+</script>
+</body>
+<!--</html>-->

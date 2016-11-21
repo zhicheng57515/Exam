@@ -1,0 +1,61 @@
+
+
+<script src="admin-addQue.js"></script>
+<script src="adminCheck.js"></script>
+<div >
+    <!--<select>
+        <option ng-repeat="myName in name" value="{{myName.classNo}}">{{myName.className}}</option>
+    </select>-->
+    <header style="margin-top: 2%">
+        <span >请选择班级：</span>
+        <select  id="family">班级编号
+        </select>
+    </header>
+    <br>
+    <hr>
+    <!-- <div id="topic" >
+         <div style="margin-left: 20px" id="card">
+             <span style="vertical-align: top">
+                 <span id="topicNum"  style="vertical-align: top">1</span>.题目 </span>
+             <textarea id="topicContent" rows="3" cols="50" ></textarea>
+             <p>选项A  <input style="width: 350px" id="topicA" type="text" ></p>
+             <p>选项B  <input style="width: 350px" id="topicB" type="text" ></p>
+             <p>选项C  <input style="width: 350px" id="topicC" type="text" ></p>
+             <p>选项D  <input style="width: 350px" id="topicD" type="text" ></p>
+             <p>答案：<input style="width: 350px" id="answer" type="text" ></p>
+             <p style="color: red">分值：<input style="width: 350px" type="text"></p>
+             <hr>
+         </div>
+     </div>-->
+    <div id="topic">
+        <div style="display: none">
+            <div   >
+                <div style="margin-left: 20px;" id="card">
+                    <p><span style="vertical-align: top">
+                <span id="topicNum"  style="vertical-align: top"></span>
+                         <strong style="vertical-align: top">0</strong>.题目 </span>
+                        <textarea cols="60" rows="3" id="topicContent"  ></textarea></p>
+                    <p>选项A  :<textarea id="topicA" cols="50"></textarea></p>
+                    <p>选项B  :<textarea id="topicB" cols="50"></textarea></p>
+                    <p>选项C  :<textarea id="topicC" cols="50"></textarea></p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="total" style="line-height: 26px">
+
+        <label style="color: red">调查名称:<input id="surveyName" type="text"></label>
+        <div id="paperContent">
+            <div id="paper"></div>
+        </div>
+
+
+        <hr style="margin-bottom: 20px">
+
+
+    </div>
+    <button style="margin-left: 80px" id="addQueNum" type="button" class="btn btn-info">试题+</button>
+    <button id="createExam" disabled="true" class="btn btn-info">创建调查</button>
+    <span style="color: red">*红的的选项是必须填写的选项</span>
+</div>

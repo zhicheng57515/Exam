@@ -1,0 +1,25 @@
+
+<%
+var dat=new Array(1)
+var i=0;
+var j=0;
+if(rows!=null){
+    for(var key in rows){
+    dat[i]=rows[key];
+    i++;
+    j++;
+%>
+<p ><%=j%>.<%=dat[i]=rows[key]['testContent']%></p>
+<div style="text-indent: 4em">
+    <p><input type="radio" id="<%=dat[i]=rows[key]['testNo']%>" value="A" name="<%=j%>">A．<%=dat[i]=rows[key]['optionA']%></p>
+    <p><input type="radio" id="<%=dat[i]=rows[key]['testNo']%>" value="B"  name="<%=j%>">B．<%=dat[i]=rows[key]['optionB']%></p>
+    <p><input type="radio" id="<%=dat[i]=rows[key]['testNo']%>" value="C" name="<%=j%>">C．<%=dat[i]=rows[key]['optionC']%></p>
+    <p><input type="radio" id="<%=dat[i]=rows[key]['testNo']%>" value="D" name="<%=j%>">D．<%=dat[i]=rows[key]['optionD']%></p>
+</div>
+
+<hr style="text-indent:-4em;width: 93%;height:1px;border:none;border-top:1px dashed #0066CC;" />
+<%
+    }
+}
+
+%>

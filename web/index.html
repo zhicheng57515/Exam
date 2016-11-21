@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>考试系统</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--外部文件引入-->
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
+    <script src="//cdn.bootcss.com/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
+
+
+    <!--自己写的样式-->
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+<span id="title">考试系统</span>
+<nav id="nav1" class="navbar navbar-default" role="navigation">
+        <div id="header" style="background: black;width: 100%;height: 90px"><br>
+            <img class="col-md-offset-1" src="images/logo.png" width="299" height="60"></div>
+        <div class="container-fluid">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav col-md-12" >
+                <li id="main" class="col-md-2 col-md-offset-1" ng-click="$root.mb1url = 'main.html'" onmouseover="mouseOver('#main a')" onmouseout="mouseOut('#main a')" onclick="checkPage('main')" ><a href="#">首页</a></li>
+                <li id="exam" class="col-md-2" ng-click="$root.mb1url = 'examZone.html'" onmouseover="mouseOver('#exam a')" onmouseout="mouseOut('#exam a')" onclick="checkPage('examZone')"><a href="#">考试专区</a></li>
+                <li id="ques" class="col-md-2" ng-click="$root.mb1url = 'question.html'" onmouseover="mouseOver('#ques a')" onmouseout="mouseOut('#ques a')" onclick="checkPage('question')"><a href="#">问卷调查</a></li>
+                <li id="sub" class="col-md-2" ng-click="$root.mb1url = 'tiku.html'" onmouseover="mouseOver('#sub a')" onmouseout="mouseOut('#sub a')" onclick="checkPage('tiku')"><a href="#">题库中心</a></li>
+                <li class="dropdown col-md-2" >
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" onmouseover="mouseOver('.dropdown>a')" onmouseout="mouseOut('.dropdown>a')">
+                        <img style="height: 30px;width: 30px" id="photo" src="images/userAvatar.png">
+                        <label id="indexName"></label> <span class="caret"></span></a>
+                    <ul id="down" class="dropdown-menu" role="menu" style="width: 90%;text-align: center" >
+                        <li><p style="text-align: center"><a href="#" ng-click="$root.mb1url = 'perMessage.html'">个人信息</a></p></li>
+                        <li><p style="text-align: center"><a href="http://m.xmgc360.com/start/web/account/" >切换/注销账号</a></p></li>
+                        <li id="quanxian"><p style="text-align: center"><a href="adminManage.html">后台管理</a></p></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<ul id="nav2" class="nav nav-pills navbar-fixed-bottom " role="tablist" style="background-color: #2baacc">
+        <li role="presentation"  ng-click="$root.mb1url = 'main.html'"  onclick="checkPage('main')" ><a href="#"><span class="glyphicon glyphicon-home"></span><br>首页</a></li>
+        <li role="presentation" ng-click="$root.mb1url = 'examZone.html'"  onclick="checkPage('examZone')"><a href="#"><span class="glyphicon glyphicon-book"></span><br>考试</a></li>
+        <li role="presentation" ng-click="$root.mb1url = 'question.html'"  onclick="checkPage('question')"><a href="#"><span class="glyphicon glyphicon-align-left"></span><br>问卷</a></li>
+        <li role="presentation" ng-click="$root.mb1url = 'tiku.html'"  onclick="checkPage('tiku')"><a href="#"><span class="glyphicon glyphicon-list-alt"></span><br>题库</a></li>
+        <li role="presentation" ng-click="$root.mb1url = 'phoneNav.html'"  onclick="checkPage('phoneNav')"><a href="#"><span class="glyphicon glyphicon-user"></span><br>我的</a></li>
+</ul>
+
+
+<!--显示区域-->
+
+<div  ng-include='$root.mb1url' id="allPage" style="margin-bottom: 60px">
+
+</div>
+<div id="footer" class="col-md-12 col-sm-12" style="background-color: #fafafa;height: 100px; margin-top: 3%">
+        <div style="text-align: center;padding: 30px 0">
+            <p>
+                <a href="#">关于我们</a> -
+                <a href="#">广告合作</a> -
+                <a href="#">联系我们</a> -
+                <a href="#">免责声明</a> -
+                <a href="#">网站地图</a> -
+                <a href="#">投诉建议</a> -
+                <a href="#">在线投稿</a>
+            </p>
+            <p>©CopyRight 2016 m.xmgc360.com Inc All Rights Reserved. 第七小组 版权所有</p>
+            </div>
+
+</div>
+<script src="index.js"></script>
+<script src="contact.js"></script>
+<script src="perMessage.js"></script>
+<script src="phoneNav.js"></script>
+</body>
+</html>

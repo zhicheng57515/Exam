@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="admin">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--外部文件引入-->
+
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
+    <script src="//cdn.bootcss.com/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
+
+</head>
+<body>
+<div>
+
+    <div style="background-color: #1ea2c9;width: 100%;height:50px;line-height: 50px;font-size: 24px;font-weight: bolder;">
+        <a href="index.html" style="float: left;margin-left: 5px"><button class="btn btn-default">返回</button></a>
+           <span style="margin-left: 40%">后台管理</span>
+    </div>
+    <div style="width: 20%;float: left;height:200px;margin-top: 1%">
+
+        <button ng-click="$root.mb1url = 'admin-Description.html'" onclick="checkPage('admin-Description')"
+                class="btn btn-default" style="width: 100%;margin-bottom: 2%">
+            说明文档</button>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="padding: 0;">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseOne">
+                         <button class="btn btn-default" style="width: 100%">问卷</button>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <a href="#"><div class="panel-body" onclick="checkPage('admin-addQue')" ng-click="$root.mb1url = 'admin-addQue.html'">创建发布问卷</div></a>
+                    <a href="#"><div class="panel-body" onclick="checkPage('admin-allQue')" ng-click="$root.mb1url = 'admin-allQue.html'">查看已发布问卷</div></a>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" style="padding: 0">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseTwo">
+                           <button class="btn btn-default" style="width: 100%">考试</button>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <a href="#"><div class="panel-body" onclick="checkPage('admin-addExam')" ng-click="$root.mb1url = 'admin-addExam.html'">创建发布考试（自行加题）</div></a>
+                    <a href="#"> <div class="panel-body" onclick="checkPage('admin-addRandom')" ng-click="$root.mb1url = 'admin-addRandom.html'">创建发布考试（随机抽题）</div></a>
+                        <a href="#"> <div class="panel-body" onclick="checkPage('admin-allExam')" ng-click="$root.mb1url = 'admin-allExam.html'">查看已经发布的考试</div></a>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" style="padding: 0">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseThree">
+                            <button class="btn btn-default" style="width: 100%">上传文件</button>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <a href="#"><div class="panel-body" onclick="checkPage('admin-testsuper')" ng-click="$root.mb1url = 'admin-testsuper.html'">上传创建考试</div></a>
+                    <a href="#"> <div class="panel-body" onclick="checkPage('admin-addQue-wenjuan')" ng-click="$root.mb1url = 'admin-addQue-wenjuan.html'">上传创建问卷</div></a>
+                    <a href="#"> <div class="panel-body" onclick="checkPage('admin-addTest-ToBank')" ng-click="$root.mb1url = 'admin-addTest-ToBank.html'">上传添加至题库</div></a>
+                </div>
+            </div>
+            <button id="adminUser" ng-click="$root.mb1url = 'admin-User.html'" onclick="checkPage('admin-User')" class="btn btn-default" style="display: none;width: 100%;margin-top: 2%">管理账号信息</button>
+
+        </div>
+    </div>
+    <!--显示的区域-->
+    <div ng-include='$root.mb1url' style="width: 73%;float: right"></div>
+ <!--   <div>
+    <div ng-click="$root.mb1url = 'controller/sec1.html'" >页面一</div>
+    <div ng-click="$root.mb1url = 'controller/sec2.html'">页面二</div>
+    <div ng-click="$root.mb1url = 'controller/sec3.html'">页面三</div>
+    <div ng-click="$root.mb1url = 'controller/sec4.html'">页面四</div>
+    <div ng-click="$root.mb1url = 'controller/sec5.html'">页面五</div>
+    </div>
+
+    <div ng-include='$root.mb1url' style="background-color: black"></div>-->
+</div>
+<script src="adminManage.js"></script>
+<script src="admin-addExam.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script src="adminCheck.js"></script>
+</body>
+</html>

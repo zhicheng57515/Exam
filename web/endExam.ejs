@@ -1,0 +1,30 @@
+
+<%
+var dat=new Array(1)
+var i=0;
+var j=0;
+if(rows!=null){
+
+        for(var key in rows){
+    dat[i]=rows[key];
+    i++;
+    j++;
+%>
+<p ><%=j%>.<%=dat[i]=rows[key]['testContent']%></p>
+<div style="text-indent: 4em">
+    <p>A．<%=dat[i]=rows[key]['optionA']%></p>
+    <p>B．<%=dat[i]=rows[key]['optionB']%></p>
+    <p>C．<%=dat[i]=rows[key]['optionC']%></p>
+    <p>D．<%=dat[i]=rows[key]['optionD']%></p>
+</div>
+<div>
+    正确答案：<span><%=dat[i]=rows[key]['answer']%></span> &nbsp;&nbsp;    &nbsp;&nbsp;您选择的答案：<span><%=testAnswerList[i-1]%></span>
+</div>
+
+<hr style="text-indent:-4em;width: 93%;height:1px;border:none;border-top:1px dashed #0066CC;" />
+
+<%
+}
+}
+
+%>

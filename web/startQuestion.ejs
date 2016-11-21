@@ -1,0 +1,51 @@
+
+<%
+var dat=new Array(1)
+var i=0;
+var j=0;
+if(rows2.length!=0){
+
+    var arr=new Array(0)
+    for(var key1 in rows2){
+        var arrLi=rows2[key1]['userAnswer']
+        arr.push(arrLi)
+
+    }
+
+}
+if(rows!=null){
+        for(var key in rows){
+
+    dat[i]=rows[key];
+    i++;
+    j++;
+%>
+<hr style="width: 93%;height:1px;border:none;border-top:1px dashed #0066CC;" />
+<%
+if(rows2.length!=0){
+    %>
+<p id="havAnswer" style="color: #67b168 ">您选择的答案：<%=arr[i-1]%></p>
+<%
+}
+ %>
+
+<p ><%=j%>.<%=dat[i]=rows[key]['surContent']%></p>
+<div >
+    <%
+ %>
+    <p><input type="radio" id="<%=dat[i]=rows[key]['surBankNo']%>" value="<%=dat[i]=rows[key]['optionA']%>" name="<%=j%>"><%=dat[i]=rows[key]['optionA']%>  &nbsp; </p>
+    <p><input type="radio" id="<%=dat[i]=rows[key]['surBankNo']%>" value="<%=dat[i]=rows[key]['optionB']%>"  name="<%=j%>"><%=dat[i]=rows[key]['optionB']%> &nbsp;  </p>
+    <% if(!rows[key]['optionC']){
+        continue
+    } %>
+    <p><input type="radio" id="<%=dat[i]=rows[key]['surBankNo']%>" value="<%=dat[i]=rows[key]['optionC']%>" name="<%=j%>"><%=dat[i]=rows[key]['optionC']%>&nbsp;</p>
+</div>
+
+<%
+
+}
+}
+
+
+
+%>

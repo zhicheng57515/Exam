@@ -1,0 +1,57 @@
+<!--<!DOCTYPE html>
+<html lang="en"  ng-app="admin">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    &lt;!&ndash;外部文件引入&ndash;&gt;
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
+    <script src="//cdn.bootcss.com/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
+</head>
+<body>-->
+<div style="position: relative;height: 500px;">
+<div ng-controller="adminAllExam"
+     style="margin-left: 5%;margin-right: 10%;margin-top: 2%;">
+    <p>您所创建的考试：<span style="color: red" ng-bind="hasNull"></span></p>
+    <pagination
+            class="table_user"
+            ng-model="currentPage"
+            total-items="length"
+            max-size="maxSize"
+            boundary-link-numbers="true"
+            boundary-links="true"
+            style=""
+            previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo">
+    </pagination>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>考试名称</td>
+            <td>所属课程</td>
+            <td>考试人数</td>
+            <td>查看结果</td>
+        </tr>
+        </thead>
+       <tbody>
+       <tr  ng-repeat="todo in filteredTodos">
+           <td><a href="#">
+               <span ng-bind="todo.testPlName" id="{{todo.tt}}" class="{{todo.testPlName}}" onclick="to_checkpaper()">...</span></a></td>
+           <td ng-bind="todo.className">...</td>
+           <td ng-bind="todo.num">...</td>
+           <td><button class="btn btn-info" onclick="to_checkExam()" id="{{todo.tt}}">查看结果</button></td>
+       </tr>
+       </tbody>
+    </table>
+
+
+</div>
+</div>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script src="admin-allExam.js"></script>
+<script src="adminCheck.js"></script>
+<!--
+</body>
+</html>-->

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--外部文件引入-->
+
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.5.8/angular.js"></script>
+    <script src="//cdn.bootcss.com/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
+
+    <style>
+        textarea{
+          margin-bottom: -10px;
+            margin-top: 10px
+        }
+    </style>
+</head>
+<body>
+<div style="margin-left: 5%;margin-right: 20%">
+    <div style="line-height: 40px;">
+        <div>
+            <span>请选择课程</span>
+            <select id="check">
+                <option>--请选择--</option>
+            </select>
+            <span id="classNumber"></span>
+        </div>
+        <div>
+            <span>请选择生成题目数量</span>
+            <select id="checkNum">
+                <option>--请选择--</option>
+            </select>
+            <span>*数目最大为题库中该科目题目的数量</span>
+        </div>
+        <div>
+            <span>请选择时长</span>
+            <select id="testTime">
+                <option value="45">45分钟</option>
+                <option value="60">60分钟</option>
+                <option value="90">90分钟</option>
+                <option value="120">120分钟</option>
+                <option value="150">150分钟</option>
+            </select><span style="color: red">*默认为45分钟</span>
+        </div>
+        <div>
+            <span>请选择班级:</span>
+            <select  id="family2">班级编号
+            </select>
+        </div>
+        <div>
+            <button id="generate" class="btn btn-info">生成试卷</button><span style="color: red">*如果生成的题目不满意，可以重复点击重新生成(所有分值默认为5分)</span>
+        </div>
+        <hr>
+    </div>
+    <div style="display: none">
+    <div id="topic" >
+        <div style="margin-left: 20px;" id="card">
+
+            <p><span style="vertical-align: top">
+                <span id="topicNum"  style="vertical-align: top">1</span>.题目 </span>
+                <textarea cols="60" rows="3" id="topicContent"  readonly></textarea></p>
+            <textarea  id="test_no"></textarea>
+            <p> 选项A  :<textarea id="topicA" cols="50" rows="1"  readonly></textarea></p>
+            <p>选项B  :<textarea id="topicB" cols="50" rows="1"  readonly></textarea></p>
+            <p>选项C  :<textarea id="topicC" cols="50" rows="1" readonly></textarea></p>
+            <p>选项D  :<textarea id="topicD" cols="50" rows="1"  readonly></textarea></p>
+            <p>答案   ：<textarea id="answer" cols="50" rows="1"  readonly></textarea></p>
+            <!--<p style="color: red">分值(*请填写数字)   ：<textarea cols="50" rows="1"></textarea></p>-->
+            <hr>
+        </div>
+    </div>
+</div>
+    <div id="total" style="display: none;line-height: 26px">
+
+        <label style="color: red">试卷名称:<input type="text"></label>
+        <div id="paperContent">
+            <div id="paper"></div>
+        </div>
+
+
+        <button id="createExam" class="btn btn-info">创建考试</button>
+        <span style="color: red">*红的的选项是必须填写的选项</span>
+        <hr style="margin-bottom: 20px">
+
+
+    </div>
+</div>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script src="admin-addRandom.js"></script>
+<script src="adminCheck.js"></script>
+</body>
+</html>

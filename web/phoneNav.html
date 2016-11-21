@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机导航</title>
+    <style>
+       /* body{
+            background:url("images/changePerMessageBK.jpg") no-repeat fixed;
+            background-size: 100% 800px;
+        }*/
+   /*     .titleNav{
+            background-color: red;
+            background-image: url(");
+            background-repeat: no-repeat;
+        }*/
+    </style>
+</head>
+<body>
+
+<div  style="width: 200px;height: 150px;text-align: center;margin-left: 22%;margin-top: 85px;">
+ <!--   <p style="margin-bottom: 15px;" role="presentation" ng-click="$root.mb1url = 'perMessage.html'"  onclick="checkPage('perMessage')"></p>-->
+    <a href="#"><span></span><img class="img-circle"  role="presentation" ng-click="$root.mb1url = 'perMessage.html'"  onclick="checkPage('perMessage')" id="phoneAvatar" style="height: 100px;width: 100px" src="images/404.png">
+    </a>
+        <p id="phoneName" style="font-size: 18px">这地方显示昵称</p>
+    <hr>
+</div>
+<ul style="list-style: none">
+    <li style="margin-bottom: 15px;line-height: 30px;font-size: 18px;margin-left: 30%" role="presentation" ng-click="$root.mb1url = 'perMessage.html'"  onclick="checkPage('perMessage')">
+        <a href="#"><span></span><label>个人信息</label></a></li>
+
+    <li style="margin-bottom: 15px;line-height: 30px;font-size: 18px;margin-left: 30%" role="presentation">
+        <a href="http://m.xmgc360.com/start/web/account/"><span></span><label>账号安全</label></a></li>
+    <li id="phoneNav" style="margin-bottom: 15px;line-height: 37px;font-size: 18px;margin-left: 30%" role="presentation">
+        <a href="adminManage.html"><span></span><label>后台管理</label></a></li>
+
+
+
+</ul>
+<script src="phoneNav.js"></script>
+<script src="perMessage.js"></script>
+<script src="contact.js"></script>
+</body>
+</html>
